@@ -11,7 +11,7 @@ class LCCloudeApp(MDApp):
     def build(self):
         Builder.load_file('style.kv')
         self.theme_cls.theme_style = "Dark"
-        self.theme_cls.primary_palette = "purple"
+        self.theme_cls.primary_palette = "Purple"
 
         return WeatherScreen()
     
