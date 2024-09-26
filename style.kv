@@ -12,23 +12,28 @@
             size_hint: 0.9, None
             pos_hint: {'center_x': 0.5}
             MDTextField:
+                id: city
                 hint_text: "Веддіть місто"
                 mode: "fill"
                 max_text_length: 25
                 helper_text: "Наприклад: Київ, Лондон, Париж"
 
             MDIconButton:
+                id: search_btn
+                on_press: root.search()
                 icon: "text-search"
                 icon_size: "24sp"
                 md_bg_color: app.theme_cls.primary_color
         MDBoxLayout:
             orientation: 'vertical'
             MDLabel:
+                id: temp
                 text: "14°С"
                 font_style: 'H1'
                 halign: 'center'
                 size_hint: 0.9, 0.5
             MDLabel:
+                id: desc
                 text: "Ясно"
                 font_style: 'H2'
                 halign: 'center'
