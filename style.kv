@@ -6,7 +6,11 @@
         MDTopAppBar:
             title: "MDTopAppBar"
             right_action_items: [["dots-vertical", lambda x: app.callback()]]
-        
+            AsyncImage:
+                id: icon
+                size: ("150sp", "150sp")
+                fit_mode: 'contain'
+                source: "https://openweathermap.org/img/wn/10d@2x.png"
         MDBoxLayout:
             spacing: "10px"
             size_hint: 0.9, None
@@ -26,15 +30,35 @@
                 md_bg_color: app.theme_cls.primary_color
         MDBoxLayout:
             orientation: 'vertical'
+
             MDLabel:
                 id: temp
                 text: "14°С"
                 font_style: 'H1'
                 halign: 'center'
                 size_hint: 0.9, 0.5
+
+            MDLabel:
+                id: feels_like
+                text: "Відчувається як"
+                font_style: 'Caption'
+                halign: 'center'
+
             MDLabel:
                 id: desc
                 text: "Ясно"
-                font_style: 'H2'
+                font_style: 'H4'
                 halign: 'center'
-        
+            
+            MDLabel:
+                id: humidity
+                text: "Вологість:"
+                font_style: 'Body1'
+                halign: 'center'
+
+            MDLabel:
+                id: wind
+                text: "Вітер:"
+                font_style: 'Body1'
+                halign: 'center'
+

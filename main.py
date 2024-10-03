@@ -28,6 +28,21 @@ class WeatherScreen(MDScreen):
         temp = weather['main']['temp']
         self.ids.temp.text = f"{round(temp)}°С"
 
+        feels_like = weather['main']['feels_like']
+        self.ids.feels_like.text = f"Відчувається як {round(feels_like)}°С"
+
+        desc = weather["weather"][0]["description"]
+        self.ids.desc.text = desc.capitalize()
+
+        humidity = weather["main"]["humidity"]
+        self.ids.humidity.text = f"Вологість: {humidity}%"
+
+        wind = weather["wind"]["speed"]
+        self.ids.wind.text = f"Вітер: {wind} м/с"
+
+        icon = weather["weather"][0]["icon"]
+        self.ids.icon.souce = f'https://openweathermap.org/img/wn/{icon}@2x.png'
+
 class LCCloudeApp(MDApp):
     def build(self):
         Builder.load_file('style.kv')
