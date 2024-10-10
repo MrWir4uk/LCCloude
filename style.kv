@@ -6,11 +6,6 @@
         MDTopAppBar:
             title: "MDTopAppBar"
             right_action_items: [["dots-vertical", lambda x: app.callback()]]
-            AsyncImage:
-                id: icon
-                size: ("150sp", "150sp")
-                fit_mode: 'contain'
-                source: "https://openweathermap.org/img/wn/10d@2x.png"
         MDBoxLayout:
             spacing: "10px"
             size_hint: 0.9, None
@@ -37,7 +32,11 @@
                 font_style: 'H1'
                 halign: 'center'
                 size_hint: 0.9, 0.5
-
+            AsyncImage:
+                id: icon
+                size: ("150sp", "150sp")
+                fit_mode: 'contain'
+                source: "https://openweathermap.org/img/wn/10d@2x.png"
             MDLabel:
                 id: feels_like
                 text: "Відчувається як"
@@ -61,4 +60,33 @@
                 text: "Вітер:"
                 font_style: 'Body1'
                 halign: 'center'
+
+            MDFillRoundFlatButton:
+                text: "Дивитися Прогноз"
+                pos_hint: {'center_x': 0.5}
+                on_press: root.show_forecast()
+            Widget:
+                size_hint_y: None 
+                height: "50sp"
+
+
+<ForecastScreen>:
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: "20sp"
+
+        MDTopAppBar:
+            title: "Прогноз погоди"
+            left_action_items: [["arrow-left", lambda x: root.back()]]
+        ScrollView:
+            
+            MDBoxLayout:
+                orientation: 'vertical'
+                pos_hint: {'center_x': 0.5}
+                size_hint: 0.9, 0.4
+
+
+
+
+
 
