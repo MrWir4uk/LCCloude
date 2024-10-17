@@ -25,18 +25,21 @@
                 md_bg_color: app.theme_cls.primary_color
         MDBoxLayout:
             orientation: 'vertical'
-
+            pos_hint:  {'center_x': 0.5}
+            size_hint: 0.9, 0.9
+            AsyncImage:
+                id: icon
+                size_hint: None, None
+                size: ("120sp", "150sp")
+                pos_hint: {'center_x': 0.5}
+                fit_mode: 'contain'
+                source: "https://openweathermap.org/img/wn/10d@2x.png"
             MDLabel:
                 id: temp
                 text: "14°С"
                 font_style: 'H1'
                 halign: 'center'
                 size_hint: 0.9, 0.5
-            AsyncImage:
-                id: icon
-                size: ("150sp", "150sp")
-                fit_mode: 'contain'
-                source: "https://openweathermap.org/img/wn/10d@2x.png"
             MDLabel:
                 id: feels_like
                 text: "Відчувається як"
@@ -81,12 +84,40 @@
         ScrollView:
             
             MDBoxLayout:
+                id: weather_list
                 orientation: 'vertical'
                 pos_hint: {'center_x': 0.5}
                 size_hint: 0.9, 0.4
 
+<WeatherCard>:
+    padding: 4
+    size_hint: 0.9, None
+    size_y: "100dp"
+    MDBoxLayout:
 
-
-
+        padding: 10
+<WeatherCard>:
+    padding: 4
+    size_hint: 0.9, None
+    size_y: "100dp"
+    MDBoxLayout:
+        padding: 10
+        AsyncImage:
+            id: icon 
+            size_hint: None, None
+            size: ("50sp", "50sp")
+            pos_hint: {'center_x': 0.5}
+            fit_mode: 'contain'
+            source: 'https://openweathermap.org/img/wn/10d@2x.png'
+        MDLabel:
+            id: temp
+            text: "14°C"
+            font_style: 'H6'
+            halign: 'center'
+        MDLabel:
+            id: desc
+            text: "Ясно "
+            font_style: 'H6'
+            halign: 'center
 
 
